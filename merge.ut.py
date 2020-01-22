@@ -30,6 +30,12 @@ class TestMergeFunction(unittest.TestCase):
     def test_merge_range2_valid_withsample3(self):
         result = merge_range2([(1, 10), (2, 6), (3, 5), (7, 9)])
         self.assertEqual(result, [(1, 10)])
-
+    def test_merge_range_valid_withsample4(self):
+        result = merge_range([(6, 8), (1, 9), (2, 4), (4, 7)])
+        self.assertEqual(result, [(1, 9)])
+    
+    def test_merge_range2_valid_withsample4(self):
+        result = merge_range2([(6, 8), (1, 9), (2, 4), (4, 7)])
+        self.assertEqual(result, [(1, 9)])
 if __name__ == '__main__':
     unittest.main(argv=['first-arg-is-ignored'], exit=False)
