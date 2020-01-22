@@ -40,7 +40,7 @@ def merge_range2(ranges):
                 ranges[index] = range
             else:
                 if range[1] > ranges[index][1]:
-                    ranges[index] = [ranges[index][0], range[1]]
+                    ranges[index] = (ranges[index][0], range[1])
         return ranges[:index+1]
     else:
         return ranges
