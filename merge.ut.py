@@ -4,9 +4,6 @@ from merge import merge_range2
 
 class TestMergeFunction(unittest.TestCase):
 
-    def setUp(self):
-        self.merge = merge_range
-
     def test_merge_range_valid_withsample1(self):
         result = merge_range([(0, 1), (3, 5), (4, 8), (10, 12), (9, 10)])
         self.assertEqual(result, [(0, 1), (3, 8), (9, 12)])
