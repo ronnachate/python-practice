@@ -4,13 +4,17 @@ flatten = chain.from_iterable
 def merge_range(ranges):
     # add offset to force stop value to low order while sorted
     stop_offset = 1
+    start_flag = 1
+    stop_flag = -1
+
     #sorted range to rearrange time with start or end flag
-    ranges = sorted(flatten(((start, 1), (stop + stop_offset, -1))
+    ranges = sorted(flatten(((start, start_flag), (stop + stop_offset, stop_flag))
             for start, stop in ranges))
     c = 0
     result = []
     #loop all list of start and stop
     for value, flag in ranges:
+        #c = 0, start new range
         if c == 0:
             start = value
         c += flag
