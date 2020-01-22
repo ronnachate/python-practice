@@ -30,7 +30,7 @@ def merge_range(ranges):
 
 
 def merge_range2(ranges):
-    if( len(ranges) > 1):
+    if len(ranges) > 1:
         #sorted ranges by start time
         ranges = sorted(ranges, key=lambda range: range[0])
         index = 0
@@ -39,10 +39,13 @@ def merge_range2(ranges):
                 index += 1
                 ranges[index] = range
             else:
-                ranges[index] = [ranges[index][0], range[1]]
+                if range[1] > ranges[index][1]:
+                    ranges[index] = [ranges[index][0], range[1]]
         return ranges[:index+1]
     else:
         return ranges
 
-output = merge_range2([(0, 1), (3, 5), (4, 8), (10, 12), (9, 10)])
+output = merge_range2([(1, 5), (6,7), (2, 3)])
+print(output)
+output = merge_range2([(1, 10), (2, 6), (3, 5), (7, 9)])
 print(output)
