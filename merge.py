@@ -2,7 +2,7 @@ from itertools import chain
 flatten = chain.from_iterable
 
 def merge_range(ranges):
-    # add offset to force stop value to low order while soted
+    # add offset to force stop value to low order while sorted
     stop_offset = 1
     #sorted range to rearrange time with start or end flag
     ranges = sorted(flatten(((start, 1), (stop + stop_offset, -1))
